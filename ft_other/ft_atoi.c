@@ -1,43 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 10:17:29 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/09/01 15:33:48 by jle-doua         ###   ########.fr       */
+/*   Created: 2024/05/20 10:20:56 by jle-doua          #+#    #+#             */
+/*   Updated: 2024/08/25 15:13:05 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-size_t	ft_strlen(const char *string)
+int	ft_atoi(const char *str)
 {
-	size_t	i;
-
-	i = 0;
-	while (string[i])
-	{
-		i++;
-	}
-	return (i);
-}
-
-size_t	ft_strlennojl(const char *string)
-{
-	size_t	i;
-	size_t	count;
+	int	i;
+	int	count;
+	int	res;
 
 	i = 0;
 	count = 0;
-	while (string[i])
-	{
-		if (string[i] != '\n')
-		{
-			count++;
-		}
+	res = 0;
+	while (ft_isspace(str[i]))
 		i++;
-	}
-	return (count);
+	if (str[i] == '+' || str[i] == '-')
+		if (str[i++] == '-')
+			count++;
+	while (str[i] >= '0' && str[i] <= '9')
+		res = res * 10 + (str[i++] - '0');
+	if (count % 2)
+		res *= -1;
+	return (res);
 }

@@ -6,12 +6,16 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 14:58:52 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/09/10 15:24:46 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/09/01 15:33:33 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
 # include <fcntl.h>
 # include <stdio.h>
@@ -24,6 +28,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+int					ft_atoi(const char *str);
 void				ft_bzero(void *tab, size_t n);
 void				*ft_calloc(size_t nelement, size_t size);
 char				*ft_itoa(int n);
@@ -66,6 +71,7 @@ char				*ft_strjoin(char const *s1, char const *s2);
 size_t				ft_strlcat(char *dst, const char *src, size_t n);
 size_t				ft_strlcpy(char *dst, const char *src, size_t n);
 size_t				ft_strlen(const char *string);
+size_t				ft_strlennojl(const char *string);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strnstr(const char *search, const char *find, size_t n);
@@ -73,9 +79,6 @@ char				*ft_strrchr(const char *str, int c);
 
 int					ft_tolower(int c);
 int					ft_toupper(int c);
-
-int					ft_atoi(const char *str);
-long				ft_atol(const char *str);
 
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
@@ -87,5 +90,15 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+
+size_t				ft_gnl_strlen(char *s);
+char				*ft_gnl_strchr(char *s, int c);
+char				*ft_gnl_strjoin(char *s1, char *s2);
+char				*ft_gnl_strdup(char *str);
+
+char				*get_next_line(int fd);
+char				*ft_read(int fd, char *res);
+char				*ft_start_next_line(char *res);
+char				*ft_cut_line(char *res);
 
 #endif

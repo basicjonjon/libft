@@ -6,7 +6,7 @@
 #    By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 15:15:00 by jle-doua          #+#    #+#              #
-#    Updated: 2024/09/10 15:23:25 by jle-doua         ###   ########.fr        #
+#    Updated: 2024/09/01 13:09:05 by jle-doua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,68 +17,69 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-MEM = 	ft_memset \
-		ft_memcpy \
-		ft_memmove \
-		ft_memchr \
-		ft_memcmp
+MEM = 	 ft_memset \
+		 ft_memcpy \
+		 ft_memmove \
+		 ft_memchr \
+		 ft_memcmp
 
-PUT =	ft_putchar_fd \
-		ft_putstr_fd \
-		ft_putendl_fd \
-		ft_putnbr_fd \
-		ft_putstr \
-		ft_putnbr \
-		ft_putunsigned \
-		ft_putnbrbase \
-		ft_putchar \
-		ft_putadresse \
-		ft_putstr_color \
-		ft_puterror
+PUT =	 ft_putchar_fd \
+		 ft_putstr_fd \
+		 ft_putendl_fd \
+		 ft_putnbr_fd \
+		 ft_putstr \
+		 ft_putnbr \
+		 ft_putunsigned \
+		 ft_putnbrbase \
+		 ft_putchar \
+		 ft_putadresse \
+		 ft_putstr_color \
+		 ft_puterror
 
-STR	=	ft_strlen \
-		ft_strlcpy \
-		ft_strlcat \
-		ft_strchr \
-		ft_strrchr \
-		ft_strnstr \
-		ft_strncmp \
-		ft_strdup \
-		ft_strjoin \
-		ft_strtrim \
-		ft_strmapi \
-		ft_striteri
+STR	=	 ft_strlen \
+		 ft_strlcpy \
+		 ft_strlcat \
+		 ft_strchr \
+		 ft_strrchr \
+		 ft_strnstr \
+		 ft_strncmp \
+		 ft_strdup \
+		 ft_strjoin \
+		 ft_strtrim \
+		 ft_strmapi \
+		 ft_striteri
 
 PRINTF = ft_printf
 
-IS = 	ft_isalpha \
-		ft_isdigit \
-		ft_isalnum \
-		ft_isascii \
-		ft_isprint \
-		ft_isspace
+IS = 	 ft_isalpha \
+		 ft_isdigit \
+		 ft_isalnum \
+		 ft_isascii \
+		 ft_isprint \
+		 ft_isspace
 
-TO = 	ft_toupper \
-		ft_tolower
+TO = 	 ft_toupper \
+		 ft_tolower
 
-OTHER = ft_bzero \
-		ft_calloc \
-		ft_substr \
-		ft_split \
-		ft_itoa
+OTHER =  ft_bzero \
+		 ft_atoi \
+		 ft_calloc \
+		 ft_substr \
+		 ft_split \
+		 ft_itoa
 
-ATO =   ft_atoi \
-		ft_atol
+LST = 	 ft_lstnew \
+	  	 ft_lstadd_front \
+	  	 ft_lstsize \
+	  	 ft_lstlast \
+	  	 ft_lstadd_back \
+	  	 ft_lstdelone \
+	  	 ft_lstclear \
+	  	 ft_lstiter \
+	  	 ft_lstmap
 
-LST = 	ft_lstnew \
-	  	ft_lstadd_front \
-	  	ft_lstsize \
-	  	ft_lstlast \
-	  	ft_lstadd_back \
-	  	ft_lstdelone \
-	  	ft_lstclear \
-	  	ft_lstiter \
-	  	ft_lstmap
+GET =	 get_next_line \
+		 get_next_line_utils
 
 OBJS_DIR 	= ./objet/
 MEM_DIR 	= ./ft_mem/
@@ -88,8 +89,8 @@ PRINTF_DIR 	= ./ft_printf/
 IS_DIR 		= ./ft_is/
 TO_DIR 		= ./ft_to/
 OTHER_DIR 	= ./ft_other/
-ATO_DIR 	= ./ft_ato/
 LST_DIR 	= ./ft_lst/
+GET_DIR		= ./ft_get/
 
 MEM_C	 = $(addprefix $(MEM_DIR), $(addsuffix .c, $(MEM)))
 PUT_C	 = $(addprefix $(PUT_DIR), $(addsuffix .c, $(PUT)))
@@ -98,8 +99,8 @@ PRINTF_C = $(addprefix $(PRINTF_DIR), $(addsuffix .c, $(PRINTF)))
 IS_C	 = $(addprefix $(IS_DIR), $(addsuffix .c, $(IS)))
 TO_C	 = $(addprefix $(TO_DIR), $(addsuffix .c, $(TO)))
 OTHER_C	 = $(addprefix $(OTHER_DIR), $(addsuffix .c, $(OTHER)))
-ATO_C	 = $(addprefix $(ATO_DIR), $(addsuffix .c, $(ATO)))
 LST_C	 = $(addprefix $(LST_DIR), $(addsuffix .c, $(LST)))
+GET_C	 = $(addprefix $(GET_DIR), $(addsuffix .c, $(GET)))
 
 MEM_O	 = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(MEM)))
 PUT_O	 = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(PUT)))
@@ -108,10 +109,10 @@ PRINTF_O = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(PRINTF)))
 IS_O	 = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(IS)))
 TO_O	 = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(TO)))
 OTHER_O	 = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(OTHER)))
-ATO_O	 = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(ATO)))
 LST_O	 = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(LST)))
+GET_O	 = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(GET)))
 
-OBJS = $(MEM_O) $(PUT_O) $(STRS_O) $(PRINTF_O) $(IS_O) $(TO_O) $(OTHER_O) $(LST_O) $(ATO_O)
+OBJS = $(MEM_O) $(PUT_O) $(STRS_O) $(PRINTF_O) $(IS_O) $(TO_O) $(OTHER_O) $(LST_O) $(GET_O)
 
 $(OBJS_DIR)%.o: $(MEM_DIR)%.c
 	@mkdir -p $(OBJS_DIR)
@@ -141,11 +142,11 @@ $(OBJS_DIR)%.o: $(OTHER_DIR)%.c
 	@mkdir -p $(OBJS_DIR)
 	@$(CC) $(CFLAGS) -c -o $@ $<
 
-$(OBJS_DIR)%.o: $(ATO_DIR)%.c
+$(OBJS_DIR)%.o: $(LST_DIR)%.c
 	@mkdir -p $(OBJS_DIR)
 	@$(CC) $(CFLAGS) -c -o $@ $<
 
-$(OBJS_DIR)%.o: $(LST_DIR)%.c
+$(OBJS_DIR)%.o: $(GET_DIR)%.c
 	@mkdir -p $(OBJS_DIR)
 	@$(CC) $(CFLAGS) -c -o $@ $<
 
